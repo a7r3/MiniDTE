@@ -1,0 +1,64 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+@font-face {
+    font-family: Roboto;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url('../fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto BoldItalic';
+    src: url('../fonts/Roboto-BoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto Italic';
+    src: url('../fonts/Roboto-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto Light';
+    src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto LightItalic';
+    src: url('../fonts/Roboto-LightItalic.ttf');
+}
+
+.root {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14;
+}
+
+.title {
+	-fx-font-family: "Roboto Bold";
+	-fx-font-size: 25;
+}
+
+.jfx-snackbar-content {
+	-fx-font-family: "Roboto";
+	-fx-background-color: #212121;
+}
+
+.jfx-snackbar-toast {
+	-fx-font-family: "Roboto";	
+	-fx-text-fill: #FFFFFF
+}
+
+.jfx-button-style {
+    text-transform: uppercase;
+	-fx-font-family: "Roboto Bold";
+	-fx-background-color: #4CAF50;
+	-fx-text-fill: #FFFFFF;
+}
+
+.form-title-style {
+	-fx-font-family: "Roboto Bold";
+	-fx-font-size: 15;
+}
+

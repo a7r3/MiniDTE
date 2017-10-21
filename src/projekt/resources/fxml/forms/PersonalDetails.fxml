@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:id="personal_details_subform" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="600.0" spacing="20.0"
+      styleClass="root" stylesheets="@../../css/application.css"
+      xmlns="http://javafx.com/javafx/8.0.141" fx:controller="projekt.controllers.forms.PersonalDetailsFormController">
+    <children>
+        <HBox prefHeight="35.0" spacing="20.0">
+            <children>
+                <Label prefHeight="35.0" styleClass="form-title-style" text="Personal Details"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" spacing="20.0">
+            <children>
+                <JFXTextField fx:id="surname" prefHeight="35.0" prefWidth="180.0" promptText="Surname"/>
+                <JFXTextField fx:id="firstname" prefHeight="35.0" prefWidth="180.0" promptText="First Name"/>
+                <JFXTextField fx:id="lastname" prefHeight="35.0" prefWidth="180.0" promptText="Last Name"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" spacing="20.0">
+            <children>
+                <JFXTextField fx:id="fathername" prefHeight="35.0" prefWidth="180.0" promptText="Father's Name"/>
+                <JFXTextField fx:id="mothername" prefHeight="35.0" prefWidth="180.0" promptText="Mother's Name"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" spacing="20.0">
+            <children>
+                <JFXDatePicker fx:id="dateofbirth" defaultColor="#0ca4bf" prefHeight="35.0" prefWidth="191.0"
+                               promptText="Date Of Birth"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" spacing="20.0">
+            <children>
+                <JFXTextField fx:id="aadharno" prefHeight="35.0" prefWidth="180.0" promptText="Aadhar Number"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" spacing="20.0">
+            <children>
+                <Label prefHeight="35.0" styleClass="form-title-style" text="Communication Details"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" spacing="20.0">
+            <children>
+                <JFXTextField fx:id="address" minWidth="300.0" prefHeight="35.0" prefWidth="180.0"
+                              promptText="Address Line 1"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" prefWidth="200.0" spacing="20.0">
+            <children>
+                <JFXTextField fx:id="state" prefHeight="35.0" prefWidth="180.0" promptText="State"/>
+                <JFXTextField fx:id="district" prefHeight="35.0" prefWidth="180.0" promptText="District"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" prefWidth="200.0" spacing="20.0">
+            <children>
+                <JFXTextField fx:id="pincode" prefHeight="35.0" prefWidth="180.0" promptText="Pin Code"/>
+                <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="103.0" text="Telephone : "/>
+                <JFXTextField fx:id="teleprefix" prefHeight="35.0" prefWidth="50.0"/>
+                <Label prefHeight="35.0" text="-"/>
+                <JFXTextField fx:id="telenumber" prefHeight="35.0" prefWidth="180.0"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" prefWidth="200.0" spacing="20.0">
+            <children>
+                <Label prefHeight="35.0" prefWidth="246.0" styleClass="form-title-style" text="Provide your E-Mail ID"/>
+                <Label prefHeight="35.0" prefWidth="398.0" style="-fx-font-family: 'Roboto Italic'; -fx-font-size: 13;"
+                       stylesheets="@../../css/application.css"
+                       text="Please do not fill details which does not belong to you. This is required to send important messages"
+                       wrapText="true"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" prefWidth="200.0" spacing="20.0">
+            <children>
+                <JFXTextField fx:id="mobileno" prefHeight="35.0" prefWidth="180.0" promptText="Mobile No."/>
+                <JFXTextField fx:id="email" minWidth="300.0" prefHeight="35.0" prefWidth="180.0"
+                              promptText="E-Mail ID"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
+            <children>
+                <JFXButton fx:id="submit_personal_details_form" buttonType="RAISED" prefHeight="35.0" prefWidth="104.0"
+                           ripplerFill="RED" styleClass="jfx-button-style" stylesheets="@../../css/application.css"
+                           text="PROCEED"/>
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+</VBox>
