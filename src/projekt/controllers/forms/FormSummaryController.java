@@ -52,17 +52,17 @@ public class FormSummaryController implements Initializable {
             e.printStackTrace();
         }
 
-        if (AcademicFormController.isAcademicFormComplete) {
+        if (AcademicController.isAcademicFormComplete) {
             Main.log(TAG, "AcademicForm : Complete");
-            completedForms++;
-            personal_details_status.setImage(image);
-        }
-        if (PersonalDetailsFormController.isPersonalDetailsFormComplete) {
-            Main.log(TAG, "PersonalDetailsForm : Complete");
             completedForms++;
             academic_details_status.setImage(image);
         }
-        if (CollegeListingFormController.isCollegeListingFormComplete) {
+        if (PersonalDetailsController.isPersonalDetailsFormComplete) {
+            Main.log(TAG, "PersonalDetailsForm : Complete");
+            completedForms++;
+            personal_details_status.setImage(image);
+        }
+        if (CollegeListingController.isCollegeListingFormComplete) {
             Main.log(TAG, "CollegeListingForm : Complete");
             completedForms++;
             college_listing_status.setImage(image);

@@ -1,5 +1,6 @@
 package projekt.controllers.forms;
 
+import com.google.common.collect.HashBiMap;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSnackbar;
@@ -10,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
 import projekt.LoginAuthenticator;
 import projekt.Main;
+import projekt.controllers.CollegeDB;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -17,7 +19,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class CollegeListingFormController implements Initializable {
+public class CollegeListingController implements Initializable {
 
     public static boolean isCollegeListingFormComplete = false;
     @FXML
@@ -32,27 +34,37 @@ public class CollegeListingFormController implements Initializable {
     private JFXListView<String> selected_college_list;
     @FXML
     private JFXButton submit_college_listing;
-    private String TAG = "CollegeListingFormController";
+    private String TAG = "CollegeListingController";
 
     private Connection conn = null;
     private Statement st;
     private String sql;
+    private CollegeDB collegeDB = new CollegeDB();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        String[] colleges = {
-                "IIT Bombay",
-                "SIES Graduate School of Technology",
-                "Veermata Jijabai Technological Institute",
-                "K. J. Somaiya College of Engineering",
-                "Thadomal Shahani Engineering College",
-                "VESIT Chembur",
-                "Dwarkadas J. Sanghvi College of Engineering"
-        };
+        for (HashBiMap.Entry<Integer, String> Entry : collegeDB.getMap().entrySet()) {
+            Main.log(TAG, "Adding College : " + Entry.getKey());
+            available_college_list.getItems().add(Entry.getValue());
+        }
 
-        for (int i = 0; i < colleges.length; i++) {
-            available_college_list.getItems().add(colleges[i]);
+        try {
+            new org.mariadb.jdbc.Driver();
+
+            conn = DriverManager.getConnection(Main.DB_URL, "root", "");
+            if (conn != null)
+                Main.log(TAG, "Connected to Database1");
+
+            st = conn.createStatement();
+
+            for (int i = 6; i < 33; i++) {
+                sql = "INSERT INTO LOGIN (id, email, pass) VALUES (" + i + ", 'test" + i + "', " + "'test" + i + "');";
+                st.executeQuery(sql);
+            }
+
+        } catch (Exception e1) {
+            e1.printStackTrace();
         }
 
         add_college_button.setOnAction(new EventHandler<ActionEvent>() {
@@ -86,14 +98,18 @@ public class CollegeListingFormController implements Initializable {
                 if (selected_college_list.getItems().size() == 0) {
                     jfxSnackbar.show("Please select the Colleges", 2000);
                 } else {
-                    String[] selectedColleges = new String[selected_college_list.getItems().size()];
+
+                    // Selected Colleges' Code Array
+                    int[] selectedColleges = new int[selected_college_list.getItems().size()];
+
                     for (int i = 0; i < selectedColleges.length; i++) {
-                        selectedColleges[i] = selected_college_list.getItems().get(i);
+                        selectedColleges[i] = collegeDB.getMap().inverse().get(selected_college_list.getItems().get(i));
                         Main.log(TAG, "College " + i + " : " + selectedColleges[i]);
                     }
 
                     try {
                         new org.mariadb.jdbc.Driver();
+
                         conn = DriverManager.getConnection(Main.DB_URL, "root", "");
                         if (conn != null)
                             Main.log(TAG, "Connected to Database");
@@ -103,7 +119,12 @@ public class CollegeListingFormController implements Initializable {
                         sql = "INSERT INTO COLLEGELIST (" + getPrefs(selectedColleges.length) + ")"
                                 + " VALUES (" + getColumns(selectedColleges) + ");";
 
+                        Main.log(TAG, "sql : " + sql);
+
                         st.executeQuery(sql);
+
+                        jfxSnackbar.show("Submitted College List Successfully", 2000);
+
                         conn.close();
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -114,21 +135,22 @@ public class CollegeListingFormController implements Initializable {
         });
     }
 
-    public String getPrefs(int prefLength) {
+    private String getPrefs(int prefLength) {
         StringBuilder columns = new StringBuilder();
         columns.append("id");
         for (int i = 1; i <= prefLength; i++) {
-            columns.append(", pref" + i);
+            columns.append(", pref");
+            columns.append(i);
         }
         return columns.toString();
     }
 
-    public String getColumns(String[] collegeList) {
+    private String getColumns(int[] collegeList) {
         StringBuilder columns = new StringBuilder();
         columns.append(LoginAuthenticator.id);
-        for (int i = 0; i < 5; i++) {
-             if (collegeList[i] == null)
-                columns.append(", '" + collegeList[i] + "'");
+        for (int college : collegeList) {
+            columns.append(", ");
+            columns.append(college);
         }
         return columns.toString();
     }

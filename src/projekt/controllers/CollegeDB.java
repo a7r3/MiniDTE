@@ -1,25 +1,40 @@
 package projekt.controllers;
 
+import com.google.common.collect.HashBiMap;
+
 import java.util.HashMap;
-import java.util.Map;
 
 public class CollegeDB {
 
-    private static Map<Integer, String> collegeDB = new HashMap<>();
+    HashBiMap<Integer, String> map = HashBiMap.create();
 
+    HashMap<Integer, Integer> seatsMap = new HashMap<>();
 
     public CollegeDB() {
-        collegeDB.put(600, "IIT Bombay");
-        collegeDB.put(601, "SIES Graduate School of Technology");
-        collegeDB.put(602, "Veermata Jijabai Technological Institute");
-        collegeDB.put(603, "K. J. Somaiya College of Engineering");
-        collegeDB.put(604, "Thadomal Shahani Engineering College");
-        collegeDB.put(605, "VESIT Chembur");
-        collegeDB.put(606, "Dwarkadas J. Sanghvi College of Engineering");
+        map.put(601, "SIES GST : Computer Engineering");
+        seatsMap.put(601, 4);
+        map.put(602, "SIES GST : Information Technology");
+        seatsMap.put(602, 4);
+        map.put(701, "KJSCE : Computer Engineering");
+        seatsMap.put(701, 4);
+        map.put(702, "KJSCE : Information Technology");
+        seatsMap.put(702, 4);
+        map.put(801, "Thadomal Shahani C.E. : Computer Engineering");
+        seatsMap.put(801, 4);
+        map.put(802, " Thadomal Shahani C.E. : Information Technology");
+        seatsMap.put(802, 4);
+        map.put(901, "VESIT : Computer Engineering");
+        seatsMap.put(901, 4);
+        map.put(902, "VESIT : Information Technology");
+        seatsMap.put(902, 4);
     }
 
-    public static Map<Integer, String> getCollegeDB() {
-        return collegeDB;
+    public HashBiMap<Integer, String> getMap() {
+        return map;
+    }
+
+    public HashMap<Integer, Integer> getSeatsMap() {
+        return seatsMap;
     }
 
 }

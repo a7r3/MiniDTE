@@ -1,13 +1,10 @@
 package projekt.controllers;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import projekt.Main;
 
 import java.io.IOException;
@@ -116,6 +113,7 @@ public class StudentNavPaneController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 scc.studentNavDrawerToggle();
+                MainController.closeConsoleStage();
                 Main.startLoginForm();
             }
         });

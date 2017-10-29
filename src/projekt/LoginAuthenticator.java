@@ -5,6 +5,8 @@ import java.sql.*;
 public class LoginAuthenticator {
 
     public static int id = 404;
+    public static boolean isAdmin = false;
+
     private String USER, PASS;
     private String TAG = "LoginAuthenticator";
 
@@ -37,6 +39,10 @@ public class LoginAuthenticator {
             conn.close();
             if (id == 404)
                 return false;
+            else if (id == 0) {
+                isAdmin = true;
+                return true;
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

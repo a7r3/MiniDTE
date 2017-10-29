@@ -4,6 +4,7 @@ import com.jfoenix.controls.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -11,6 +12,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import projekt.LoginAuthenticator;
 import projekt.Main;
+
+import static projekt.LoginAuthenticator.isAdmin;
 
 public class MainController {
 
@@ -24,13 +27,7 @@ public class MainController {
     private JFXPasswordField password_field;
 
     @FXML
-    private JFXButton login_button;
-
-    @FXML
     private Label title;
-
-    @FXML
-    private Label forgot_password;
 
     @FXML
     private JFXProgressBar login_progress;
@@ -40,6 +37,12 @@ public class MainController {
     private String password;
 
     private String TAG = "MainController";
+
+    private static Stage consoleStage;
+
+    public static void closeConsoleStage() {
+        consoleStage.close();
+    }
 
     public void setTitle(Label title) {
         this.title = title;
@@ -61,17 +64,24 @@ public class MainController {
             Main.log(TAG, "Login Successful");
             Main.log(TAG, "Closing Login and Opening DTE Console");
             try {
-                FXMLLoader studentConsoleLoader = new FXMLLoader();
-                studentConsoleLoader.setLocation(Main.getResource(Main.STUDENT_CONSOLE_PANE));
+                FXMLLoader consoleLoader = new FXMLLoader();
+                String consoleTitle;
+                if (isAdmin) {
+                    consoleLoader.setLocation(Main.getResource(Main.ADMIN_CONSOLE_PANE));
+                    consoleTitle = "DTE | Admin Console";
+                } else {
+                    consoleLoader.setLocation(Main.getResource(Main.STUDENT_CONSOLE_PANE));
+                    consoleTitle = "DTE | Student Console";
+                }
 
                 // LOAD STUDENT CONSOLE PANE //
-                AnchorPane studentConsole = studentConsoleLoader.load();
-                Stage studentConsoleStage = new Stage();
-                studentConsoleStage.setTitle("DTE - Student Console");
-                studentConsoleStage.setScene(new Scene(studentConsole));
-                studentConsoleStage.setMaxWidth(620);
-                studentConsoleStage.setMaxHeight(460);
-                studentConsoleStage.show();
+                AnchorPane console = consoleLoader.load();
+                consoleStage = new Stage();
+                consoleStage.setScene(new Scene(console));
+                consoleStage.setTitle(consoleTitle);
+                consoleStage.setMaxWidth(620);
+                consoleStage.setMaxHeight(460);
+                consoleStage.show();
                 Main.closeLoginForm();
             } catch (Exception e) {
                 e.printStackTrace();

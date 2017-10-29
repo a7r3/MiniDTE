@@ -17,24 +17,24 @@ import projekt.Main;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class AcademicFormController implements Initializable {
-
+public class AcademicController implements Initializable {
 
     public static boolean isAcademicFormComplete = false;
     @FXML
-    private JFXTextField ssc_board, ssc_passyear, ssc_seatno,
-            ssc_maths_marks, ssc_maths_total, ssc_maths_percent,
-            ssc_aggregate_marks, ssc_aggregate_total, ssc_aggregate_percent,
-            hsc_board, hsc_passyear, hsc_seat_no, hsc_stream,
-            hsc_maths_marks, hsc_maths_total, hsc_maths_percent,
-            hsc_aggregate_marks, hsc_aggregate_total, hsc_aggregate_percent;
+    private JFXTextField ssc_aggregate_percent, hsc_aggregate_percent;
+
+    @FXML
+    private JFXTextField jee_marks;
+
+    @FXML
+    private JFXTextField cet_marks;
+
     @FXML
     private JFXButton submit_academic_form;
-    private String TAG = "AcademicFormController";
+    private String TAG = "AcademicController";
 
     private Connection conn = null;
     private Statement st;
@@ -44,14 +44,11 @@ public class AcademicFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        final JFXTextField[] jfxTextFields = {ssc_board, ssc_passyear, ssc_seatno,
-                ssc_maths_marks, ssc_maths_total, ssc_maths_percent,
-                ssc_aggregate_marks, ssc_aggregate_total, ssc_aggregate_percent,
-                hsc_board, hsc_passyear, hsc_seat_no, hsc_stream,
-                hsc_maths_marks, hsc_maths_total, hsc_maths_percent,
-                hsc_aggregate_marks, hsc_aggregate_total, hsc_aggregate_percent};
+        final JFXTextField[] jfxTextFields = {ssc_aggregate_percent, hsc_aggregate_percent,
+                cet_marks, jee_marks};
 
         submit_academic_form.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
             int isIncorrect = 0;
 
             @Override
@@ -67,10 +64,9 @@ public class AcademicFormController implements Initializable {
                     }
                 }
                 if (isIncorrect == 1) {
-                    System.out.println("Submission finished with ERRORS");
+                    Main.log(TAG, "Submission finished with ERRORS");
                 } else {
-                    System.out.println("Submitting Form to DB");
-                    isAcademicFormComplete = true;
+                    Main.log(TAG, "Submitting Form to DB");
                     try {
                         new org.mariadb.jdbc.Driver();
                         conn = DriverManager.getConnection(Main.DB_URL, "root", "");
@@ -80,10 +76,13 @@ public class AcademicFormController implements Initializable {
 
                         st = conn.createStatement();
 
-                        System.out.println("LoginAuthenticator.id " + LoginAuthenticator.id);
-                        sql = "INSERT INTO ACAD (id, ssc_board, ssc_passyear, ssc_seatno, ssc_maths_marks, ssc_maths_total, ssc_maths_percent, ssc_aggregate_marks, ssc_aggregate_total, ssc_aggregate_percent, hsc_board, hsc_passyear, hsc_seat_no, hsc_stream, hsc_maths_marks, hsc_maths_total, hsc_maths_percent, hsc_aggregate_marks, hsc_aggregate_total, hsc_aggregate_percent)"
+                        sql = "INSERT INTO ACAD (id, ssc_aggregate_percent, hsc_aggregate_percent, cet_marks, jee_marks)"
                                 + " VALUES (" + getColumnValues(jfxTextFields) + ");";
                         st.executeQuery(sql);
+
+                        conn.close();
+                        isAcademicFormComplete = true;
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

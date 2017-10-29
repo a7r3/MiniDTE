@@ -90,7 +90,7 @@ public class UploadDocsController implements Initializable {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Open Photo Image");
                 imageFile = fileChooser.showOpenDialog(new Stage());
-                if(imageFile!=null) {
+                if (imageFile != null) {
                     Image image = new Image(imageFile.toURI().toString());
                     photo_image.setImage(image);
                 }
@@ -103,7 +103,7 @@ public class UploadDocsController implements Initializable {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Open Signature Image");
                 signatureFile = fileChooser.showOpenDialog(new Stage());
-                if(imageFile!=null) {
+                if (imageFile != null) {
                     Image image = new Image(signatureFile.toURI().toString());
                     signature_image.setImage(image);
                 }

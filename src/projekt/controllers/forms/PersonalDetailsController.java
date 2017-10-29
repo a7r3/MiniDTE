@@ -22,7 +22,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class PersonalDetailsFormController implements Initializable {
+public class PersonalDetailsController implements Initializable {
 
     public static boolean isPersonalDetailsFormComplete = false;
     @FXML
@@ -34,7 +34,7 @@ public class PersonalDetailsFormController implements Initializable {
             fathername, mothername, aadharno,
             address, state, district, pincode,
             teleprefix, telenumber, mobileno, email;
-    private String TAG = "PersonalDetailsFormController";
+    private String TAG = "PersonalDetailsController";
     private Connection conn = null;
     private Statement st;
     private ResultSet rs;

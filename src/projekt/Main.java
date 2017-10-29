@@ -15,6 +15,7 @@ public class Main extends Application {
     /////////////
     // LAYOUTS //
     /////////////
+    public final static String ADMIN_CONSOLE_PANE = "AdminConsole.fxml";
     public final static String ABOUT_PAGE = "About.fxml";
     public final static String LOGIN_PAGE = "Main.fxml";
     public final static String STUDENT_CONSOLE_PANE = "StudentConsole.fxml";

@@ -1,119 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="600.0" spacing="15.0" stylesheets="@../../css/application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projekt.controllers.forms.AcademicFormController">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0"
+      prefWidth="600.0" spacing="15.0" stylesheets="@../../css/application.css" xmlns="http://javafx.com/javafx/8.0.141"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="projekt.controllers.forms.AcademicController">
     <padding>
-        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
     </padding>
     <children>
         <HBox prefHeight="35.0" prefWidth="570.0">
             <children>
-                <Label prefHeight="33.0" prefWidth="211.0" styleClass="form-title-style" text="10th / S.S.C. Equivalent Details" />
+                <Label prefHeight="33.0" prefWidth="211.0" styleClass="form-title-style"
+                       text="10th / S.S.C. Equivalent Details"/>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
                 <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
                     <children>
-                        <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="140.0" text="Board" />
-                        <JFXTextField fx:id="ssc_board" prefHeight="26.0" prefWidth="273.0" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="140.0" text="Board"/>
+                        <JFXTextField fx:id="ssc_board" disable="true" prefHeight="26.0" prefWidth="273.0"/>
                     </children>
                 </HBox>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="140.0" text="Passing Year" />
-                <JFXTextField fx:id="ssc_passyear" />
-                <Label prefHeight="33.0" prefWidth="55.0" text="Seat No" />
-                <JFXTextField fx:id="ssc_seatno" />
+                <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="140.0" text="Passing Year"/>
+                <JFXTextField fx:id="ssc_passyear" disable="true"/>
+                <Label prefHeight="33.0" prefWidth="55.0" text="Seat No"/>
+                <JFXTextField fx:id="ssc_seatno" disable="true"/>
             </children>
             <VBox.margin>
-                <Insets />
+                <Insets/>
             </VBox.margin>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="135.0" styleClass="form-title-style" text="Subjects" />
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style" text="Marks Obtained" />
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style" text="Marks OutOf" />
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style" text="Percentage" />
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="135.0" styleClass="form-title-style"
+                       text="Subjects"/>
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style"
+                       text="Marks Obtained"/>
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style"
+                       text="Marks OutOf"/>
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style"
+                       text="Percentage"/>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" text="Mathematics" />
-                <JFXTextField fx:id="ssc_maths_marks" />
-                <JFXTextField fx:id="ssc_maths_total" />
-                <JFXTextField fx:id="ssc_maths_percent" />
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" text="Mathematics"/>
+                <JFXTextField fx:id="ssc_maths_marks" disable="true"/>
+                <JFXTextField fx:id="ssc_maths_total" disable="true"/>
+                <JFXTextField fx:id="ssc_maths_percent" disable="true"/>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" text="Aggregate" />
-                <JFXTextField fx:id="ssc_aggregate_marks" />
-                <JFXTextField fx:id="ssc_aggregate_total" />
-                <JFXTextField fx:id="ssc_aggregate_percent" />
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" text="Aggregate"/>
+                <JFXTextField fx:id="ssc_aggregate_marks" disable="true"/>
+                <JFXTextField fx:id="ssc_aggregate_total" disable="true"/>
+                <JFXTextField fx:id="ssc_aggregate_percent"/>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0">
             <children>
-                <Label prefHeight="33.0" prefWidth="222.0" styleClass="form-title-style" text="12th / H.S.C. Equivalent Details" />
+                <Label prefHeight="33.0" prefWidth="222.0" styleClass="form-title-style"
+                       text="12th / H.S.C. Equivalent Details"/>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="140.0" text="Board" />
-                <JFXTextField fx:id="hsc_board" prefHeight="26.0" prefWidth="273.0" />
+                <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="140.0" text="Board"/>
+                <JFXTextField fx:id="hsc_board" disable="true" prefHeight="26.0" prefWidth="273.0"/>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="140.0" text="Passing Year" />
-                <JFXTextField fx:id="hsc_passyear" />
-                <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="95.0" text="Seat No" />
-                <JFXTextField fx:id="hsc_seat_no" />
+                <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="140.0" text="Passing Year"/>
+                <JFXTextField fx:id="hsc_passyear" disable="true"/>
+                <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="95.0" text="Seat No"/>
+                <JFXTextField fx:id="hsc_seat_no" disable="true"/>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="140.0" text="Stream" />
-                <JFXTextField fx:id="hsc_stream" prefHeight="26.0" prefWidth="273.0" />
+                <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="140.0" text="Stream"/>
+                <JFXTextField fx:id="hsc_stream" disable="true" prefHeight="26.0" prefWidth="273.0"/>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="135.0" styleClass="form-title-style" text="Subjects" />
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style" text="Marks Obtained" />
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style" text="Marks OutOf" />
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style" text="Percentage" />
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="135.0" styleClass="form-title-style"
+                       text="Subjects"/>
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style"
+                       text="Marks Obtained"/>
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style"
+                       text="Marks OutOf"/>
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style"
+                       text="Percentage"/>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" text="Mathematics" />
-                <JFXTextField fx:id="hsc_maths_marks" />
-                <JFXTextField fx:id="hsc_maths_total" />
-                <JFXTextField fx:id="hsc_maths_percent" />
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" text="Mathematics"/>
+                <JFXTextField fx:id="hsc_maths_marks" disable="true"/>
+                <JFXTextField fx:id="hsc_maths_total" disable="true"/>
+                <JFXTextField fx:id="hsc_maths_percent" disable="true"/>
             </children>
         </HBox>
         <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
             <children>
-                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" text="Aggregate" />
-                <JFXTextField fx:id="hsc_aggregate_marks" />
-                <JFXTextField fx:id="hsc_aggregate_total" />
-                <JFXTextField fx:id="hsc_aggregate_percent" />
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" text="Aggregate"/>
+                <JFXTextField fx:id="hsc_aggregate_marks" disable="true"/>
+                <JFXTextField fx:id="hsc_aggregate_total" disable="true"/>
+                <JFXTextField fx:id="hsc_aggregate_percent"/>
+            </children>
+        </HBox>
+        <HBox prefHeight="35.0" prefWidth="570.0" spacing="15.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style"
+                       text="JEE Mains Marks"/>
+                <JFXTextField fx:id="jee_marks"/>
+                <Label alignment="CENTER" prefHeight="33.0" prefWidth="140.0" styleClass="form-title-style"
+                       text="CET Marks (200)"/>
+                <JFXTextField fx:id="cet_marks"/>
             </children>
         </HBox>
         <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
             <children>
-                <JFXButton fx:id="submit_academic_form" buttonType="RAISED" prefHeight="35.0" prefWidth="104.0" ripplerFill="RED" styleClass="jfx-button-style" stylesheets="@../../css/application.css" text="PROCEED" />
+                <JFXButton fx:id="submit_academic_form" buttonType="RAISED" prefHeight="35.0" prefWidth="104.0"
+                           ripplerFill="RED" styleClass="jfx-button-style" stylesheets="@../../css/application.css"
+                           text="PROCEED"/>
             </children>
         </HBox>
     </children>
