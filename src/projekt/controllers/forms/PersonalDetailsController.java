@@ -24,7 +24,8 @@ import java.util.ResourceBundle;
 
 public class PersonalDetailsController implements Initializable {
 
-    public static boolean isPersonalDetailsFormComplete = false;
+    static boolean isPersonalDetailsFormComplete = false;
+    private final String TAG = "PersonalDetailsController";
     @FXML
     private JFXButton submit_personal_details_form;
     @FXML
@@ -34,13 +35,10 @@ public class PersonalDetailsController implements Initializable {
             fathername, mothername, aadharno,
             address, state, district, pincode,
             teleprefix, telenumber, mobileno, email;
-    private String TAG = "PersonalDetailsController";
     private Connection conn = null;
     private Statement st;
-    private ResultSet rs;
     private String sql;
     private int id;
-    private String process;
 
 
     @Override
@@ -56,16 +54,21 @@ public class PersonalDetailsController implements Initializable {
             conn = DriverManager.getConnection(Main.DB_URL, "root", "");
             if (conn != null)
                 Main.log(TAG, "Connected to Database");
+            else {
+                Main.log(TAG, "Couldn't connect to Database");
+                return;
+            }
 
             st = conn.createStatement();
             sql = "SELECT id from LOGIN WHERE id=" + LoginAuthenticator.id;
-            rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery(sql);
             while (rs.next())
                 id = rs.getInt("id");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        String process;
         if (id == LoginAuthenticator.id) {
             process = "UPDATE";
         } else {
@@ -98,6 +101,10 @@ public class PersonalDetailsController implements Initializable {
 
                         if (conn != null)
                             Main.log(TAG, "Connected to Database");
+                        else {
+                            Main.log(TAG, "Couldn't connect to Database");
+                            return;
+                        }
 
                         st = conn.createStatement();
 
@@ -120,7 +127,9 @@ public class PersonalDetailsController implements Initializable {
         StringBuilder columns = new StringBuilder();
         columns.append(LoginAuthenticator.id);
         for (i = 0; i < jfxTextFields.length; i++) {
-            columns.append(", '" + jfxTextFields[i].getText() + "'");
+            columns.append(", '");
+            columns.append(jfxTextFields[i].getText());
+            columns.append("'");
         }
         return columns.toString();
     }

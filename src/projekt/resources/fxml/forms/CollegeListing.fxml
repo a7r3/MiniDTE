@@ -7,41 +7,29 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" fx:id="college_listing_vbox"
       stylesheets="@../../css/application.css" xmlns="http://javafx.com/javafx/8.0.141"
       fx:controller="projekt.controllers.forms.CollegeListingController">
-    <children>
-        <HBox prefHeight="335.0" prefWidth="600.0">
-            <padding>
-                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
-            </padding>
-            <children>
-                <VBox prefHeight="300.0" prefWidth="240.0">
-                    <children>
-                        <Label styleClass="form-title-style" text="Available Colleges"/>
-                        <JFXListView fx:id="available_college_list" maxHeight="285.0" minHeight="240.0" minWidth="240.0"
-                                     prefHeight="285.0" prefWidth="240.0"/>
-                    </children>
-                </VBox>
-                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
-                    <children>
-                        <JFXButton fx:id="add_college_button" buttonType="RAISED" prefHeight="40.0" prefWidth="62.0"
-                                   styleClass="jfx-button-style" text="&gt;&gt;"/>
-                        <JFXButton fx:id="remove_college_button" buttonType="RAISED" prefHeight="40.0" prefWidth="62.0"
-                                   styleClass="jfx-button-style" text="&lt;&lt;"/>
-                    </children>
-                </VBox>
-                <VBox prefHeight="300.0" prefWidth="240.0">
-                    <children>
-                        <Label styleClass="form-title-style" text="Selected Colleges"/>
-                        <JFXListView fx:id="selected_college_list" maxHeight="285.0" minHeight="240.0" minWidth="240.0"
-                                     prefHeight="285.0" prefWidth="240.0"/>
-                    </children>
-                </VBox>
-            </children>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0">
-            <children>
-                <JFXButton fx:id="submit_college_listing" buttonType="RAISED" prefHeight="35.0" prefWidth="100.0"
-                           styleClass="jfx-button-style" text="PROCEED"/>
-            </children>
-        </HBox>
-    </children>
+    <HBox prefHeight="335.0" prefWidth="600.0">
+        <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+        </padding>
+        <VBox prefHeight="300.0" prefWidth="240.0">
+            <Label styleClass="form-title-style" text="Available Colleges"/>
+            <JFXListView fx:id="available_college_list" maxHeight="285.0" minHeight="240.0" minWidth="240.0"
+                         prefHeight="285.0" prefWidth="240.0"/>
+        </VBox>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+            <JFXButton fx:id="add_college_button" buttonType="RAISED" prefHeight="40.0" prefWidth="62.0"
+                       styleClass="jfx-button-style" text="&gt;&gt;"/>
+            <JFXButton fx:id="remove_college_button" buttonType="RAISED" prefHeight="40.0" prefWidth="62.0"
+                       styleClass="jfx-button-style" text="&lt;&lt;"/>
+        </VBox>
+        <VBox prefHeight="300.0" prefWidth="240.0">
+            <Label styleClass="form-title-style" text="Selected Colleges"/>
+            <JFXListView fx:id="selected_college_list" maxHeight="285.0" minHeight="240.0" minWidth="240.0"
+                         prefHeight="285.0" prefWidth="240.0"/>
+        </VBox>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0">
+        <JFXButton fx:id="submit_college_listing" buttonType="RAISED" prefHeight="35.0" prefWidth="100.0"
+                   styleClass="jfx-button-style" text="PROCEED"/>
+    </HBox>
 </VBox>

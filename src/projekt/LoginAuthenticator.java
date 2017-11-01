@@ -7,8 +7,8 @@ public class LoginAuthenticator {
     public static int id = 404;
     public static boolean isAdmin = false;
 
-    private String USER, PASS;
-    private String TAG = "LoginAuthenticator";
+    private final String USER;
+    private final String PASS;
 
     public LoginAuthenticator(String USER, String PASS) {
         this.USER = USER;
@@ -18,13 +18,18 @@ public class LoginAuthenticator {
     public boolean isRegistered() {
 
         Connection conn = null;
-        Statement st = null;
+        Statement st;
 
         try {
             new org.mariadb.jdbc.Driver();
             conn = DriverManager.getConnection(Main.DB_URL, "root", "");
+            String TAG = "LoginAuthenticator";
             if (conn != null)
                 Main.log(TAG, "Connected to Database");
+            else {
+                Main.log(TAG, "Couldn't connect to Database");
+                return false;
+            }
 
             st = conn.createStatement();
             String sql;

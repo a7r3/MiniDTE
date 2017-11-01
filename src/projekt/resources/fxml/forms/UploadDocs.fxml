@@ -9,28 +9,20 @@
       minWidth="-Infinity" fx:id="upload_docs_pane"
       prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/application.css"
       xmlns="http://javafx.com/javafx/8.0.141" fx:controller="projekt.controllers.forms.UploadDocsController">
-    <children>
-        <HBox alignment="CENTER" prefHeight="170.0" prefWidth="600.0" spacing="110.0">
-            <children>
-                <JFXButton fx:id="upload_image_button" prefHeight="50.0" prefWidth="130.0" styleClass="jfx-button-style"
-                           text="Upload Photo"/>
-                <ImageView fx:id="photo_image" fitHeight="140.0" fitWidth="140.0" pickOnBounds="true"
-                           preserveRatio="true"/>
-            </children>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="170.0" prefWidth="600.0" spacing="50.0">
-            <children>
-                <JFXButton fx:id="upload_signature_button" prefHeight="50.0" prefWidth="130.0"
-                           styleClass="jfx-button-style" text="Upload Signature"/>
-                <ImageView fx:id="signature_image" fitHeight="99.0" fitWidth="200.0" pickOnBounds="true"
-                           preserveRatio="true"/>
-            </children>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0">
-            <children>
-                <JFXButton fx:id="submit_upload_docs_button" prefHeight="35.0" prefWidth="100.0"
-                           styleClass="jfx-button-style" text="Submit"/>
-            </children>
-        </HBox>
-    </children>
+    <HBox alignment="CENTER" prefHeight="170.0" prefWidth="600.0" spacing="110.0">
+        <JFXButton fx:id="upload_image_button" prefHeight="50.0" prefWidth="130.0" styleClass="jfx-button-style"
+                   text="Upload Photo"/>
+        <ImageView fx:id="photo_image" fitHeight="140.0" fitWidth="140.0" pickOnBounds="true"
+                   preserveRatio="true"/>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="170.0" prefWidth="600.0" spacing="50.0">
+        <JFXButton fx:id="upload_signature_button" prefHeight="50.0" prefWidth="130.0"
+                   styleClass="jfx-button-style" text="Upload Signature"/>
+        <ImageView fx:id="signature_image" fitHeight="99.0" fitWidth="200.0" pickOnBounds="true"
+                   preserveRatio="true"/>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0">
+        <JFXButton fx:id="submit_upload_docs_button" prefHeight="35.0" prefWidth="100.0"
+                   styleClass="jfx-button-style" text="Submit"/>
+    </HBox>
 </VBox>

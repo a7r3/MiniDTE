@@ -9,26 +9,29 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projekt.controllers.AdminConsoleController">
-    <children>
-        <JFXToolbar fx:id="admin_console_toolbar" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #F44336;">
-            <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </padding>
-            <effect>
-                <DropShadow blurType="GAUSSIAN" />
-            </effect>
-            <center>
-                <Label fx:id="student_console_toolbar_title" styleClass="title" stylesheets="@../css/application.css" text="Admin Konsole" BorderPane.alignment="CENTER">
-                    <font>
-                        <Font name="Noto Sans Bold" size="18.0" />
-                    </font>
-                </Label>
-            </center>
-        </JFXToolbar>
-        <JFXButton fx:id="generate_results_button" buttonType="RAISED" layoutX="229.0" layoutY="71.0" prefHeight="50.0" prefWidth="140.0" styleClass="jfx-button-style" text="Generate Results" />
-        <Pane fx:id="result_pane" layoutY="139.0" prefHeight="250.0" prefWidth="600.0" />
-      <JFXButton fx:id="logOutButton" layoutX="506.0" layoutY="71.0" prefHeight="50.0" prefWidth="80.0" styleClass="jfx-button-style" text="Log-Out" />
-    </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
+            stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8.0.141"
+            fx:controller="projekt.controllers.AdminConsoleController">
+    <JFXToolbar fx:id="admin_console_toolbar" prefHeight="50.0" prefWidth="600.0"
+                style="-fx-background-color: #F44336;">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+        <effect>
+            <DropShadow blurType="GAUSSIAN"/>
+        </effect>
+        <center>
+            <Label fx:id="student_console_toolbar_title" styleClass="title" stylesheets="@../css/application.css"
+                   text="Admin Konsole" BorderPane.alignment="CENTER">
+                <font>
+                    <Font name="Noto Sans Bold" size="18.0"/>
+                </font>
+            </Label>
+        </center>
+    </JFXToolbar>
+    <JFXButton fx:id="generate_results_button" buttonType="RAISED" layoutX="229.0" layoutY="71.0" prefHeight="50.0"
+               prefWidth="140.0" styleClass="jfx-button-style" text="Generate Results"/>
+    <Pane fx:id="result_pane" layoutY="139.0" prefHeight="250.0" prefWidth="600.0"/>
+    <JFXButton fx:id="logOutButton" layoutX="506.0" layoutY="71.0" prefHeight="50.0" prefWidth="80.0"
+               styleClass="jfx-button-style" text="Log-Out"/>
 </AnchorPane>

@@ -22,24 +22,19 @@ import java.util.ResourceBundle;
 
 public class AcademicController implements Initializable {
 
-    public static boolean isAcademicFormComplete = false;
+    static boolean isAcademicFormComplete = false;
+    private final String TAG = "AcademicController";
     @FXML
     private JFXTextField ssc_aggregate_percent, hsc_aggregate_percent;
-
     @FXML
     private JFXTextField jee_marks;
-
     @FXML
     private JFXTextField cet_marks;
-
     @FXML
     private JFXButton submit_academic_form;
-    private String TAG = "AcademicController";
-
     private Connection conn = null;
     private Statement st;
     private String sql;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -73,6 +68,10 @@ public class AcademicController implements Initializable {
 
                         if (conn != null)
                             Main.log(TAG, "Connected to Database");
+                        else {
+                            Main.log(TAG, "Couldn't connect to Database");
+                            return;
+                        }
 
                         st = conn.createStatement();
 
@@ -97,7 +96,9 @@ public class AcademicController implements Initializable {
         StringBuilder columns = new StringBuilder();
         columns.append(LoginAuthenticator.id);
         for (i = 0; i < jfxTextFields.length; i++) {
-            columns.append(", '" + jfxTextFields[i].getText() + "'");
+            columns.append(", '");
+            columns.append(jfxTextFields[i].getText());
+            columns.append("'");
         }
         return columns.toString();
     }

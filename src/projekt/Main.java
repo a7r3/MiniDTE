@@ -8,9 +8,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 
-
 public class Main extends Application {
-
 
     /////////////
     // LAYOUTS //
@@ -30,12 +28,10 @@ public class Main extends Application {
     public final static String PERSONAL_DETAILS_FORM = "PersonalDetails.fxml";
     public final static String UPLOAD_DOCS_FORM = "UploadDocs.fxml";
 
-
+    // DATABASE URL
     public final static String DB_URL = "jdbc:mariadb://127.0.0.1:3306/login";
 
-    static Stage mainStage;
-    private static String TAG = "Main";
-    private static AnchorPane root;
+    private static Stage mainStage;
 
     public static void closeLoginForm() {
         mainStage.close();
@@ -54,7 +50,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        Main.log(TAG, "Firing up DTE Console, v0.1");
+        String TAG = "Main";
+        Main.log(TAG, "Firing up DTE Console, v0.2");
         launch(args);
     }
 
@@ -64,7 +61,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        root = FXMLLoader.load(getResource(LOGIN_PAGE));
+        AnchorPane root = FXMLLoader.load(getResource(LOGIN_PAGE));
         Scene scene = new Scene(root, 600, 400);
         scene.getStylesheets().add(getClass().getResource("resources/css/application.css").toExternalForm());
         primaryStage.setTitle("Login - DTE Console");

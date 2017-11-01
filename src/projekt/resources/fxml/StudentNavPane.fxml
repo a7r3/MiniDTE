@@ -5,37 +5,31 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox fx:id="student_nav_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="430.0" prefWidth="210.0" stylesheets="@../css/application.css"
-      xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:id="student_nav_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="430.0" prefWidth="210.0"
+      stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8.0.141"
       fx:controller="projekt.controllers.StudentNavPaneController">
-    <children>
-        <Label alignment="CENTER" prefHeight="100.0" prefWidth="210.0" style="-fx-background-color: #FFC107;"
-               styleClass="title" text="Konsole" textAlignment="CENTER">
-            <font>
-                <Font size="24.0"/>
-            </font>
-        </Label>
-        <VBox prefHeight="330.0" prefWidth="210.0">
-            <children>
-                <JFXButton fx:id="personal_details_button" buttonType="RAISED" prefHeight="50.0" prefWidth="210.0"
-                           ripplerFill="#ffc107" text="Personal Details"/>
-                <JFXButton fx:id="academic_details_button" prefHeight="50.0" prefWidth="210.0" ripplerFill="#ffc107"
-                           text="Academic Details"/>
-                <JFXButton fx:id="college_list_button" prefHeight="50.0" prefWidth="210.0" ripplerFill="#ffc107"
-                           text="College List"/>
-                <JFXButton fx:id="upload_documents_button" prefHeight="50.0" prefWidth="210.0" ripplerFill="#ffc107"
-                           text="Upload Documents"/>
-                <JFXButton fx:id="summary_button" prefHeight="50.0" prefWidth="210.0" ripplerFill="#ffc107"
-                           text="Summary"/>
-                <Label alignment="CENTER" prefHeight="30.0" prefWidth="210.0"/>
-                <HBox prefHeight="50.0" prefWidth="200.0">
-                    <children>
-                        <JFXButton fx:id="about_navpane" prefHeight="50.0" prefWidth="105.0" text="About"/>
-                        <JFXButton fx:id="logout_button_navpane" prefHeight="50.0" prefWidth="105.0" text="Log Out"/>
-                    </children>
-                </HBox>
-            </children>
-        </VBox>
-    </children>
+    <Label alignment="CENTER" prefHeight="100.0" prefWidth="210.0" style="-fx-background-color: #FFC107;"
+           styleClass="title" text="Konsole" textAlignment="CENTER">
+        <font>
+            <Font size="24.0"/>
+        </font>
+    </Label>
+    <VBox prefHeight="330.0" prefWidth="210.0">
+        <JFXButton fx:id="personal_details_button" buttonType="RAISED" prefHeight="50.0" prefWidth="210.0"
+                   ripplerFill="#ffc107" text="Personal Details"/>
+        <JFXButton fx:id="academic_details_button" prefHeight="50.0" prefWidth="210.0" ripplerFill="#ffc107"
+                   text="Academic Details"/>
+        <JFXButton fx:id="college_list_button" prefHeight="50.0" prefWidth="210.0" ripplerFill="#ffc107"
+                   text="College List"/>
+        <JFXButton fx:id="upload_documents_button" prefHeight="50.0" prefWidth="210.0" ripplerFill="#ffc107"
+                   text="Upload Documents"/>
+        <JFXButton fx:id="summary_button" prefHeight="50.0" prefWidth="210.0" ripplerFill="#ffc107"
+                   text="Summary"/>
+        <Label alignment="CENTER" prefHeight="30.0" prefWidth="210.0"/>
+        <HBox prefHeight="50.0" prefWidth="200.0">
+            <JFXButton fx:id="about_navpane" prefHeight="50.0" prefWidth="105.0" text="About"/>
+            <JFXButton fx:id="logout_button_navpane" prefHeight="50.0" prefWidth="105.0" text="Log Out"/>
+        </HBox>
+    </VBox>
 </VBox>

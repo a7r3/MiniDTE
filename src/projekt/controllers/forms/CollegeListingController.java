@@ -21,7 +21,9 @@ import java.util.ResourceBundle;
 
 public class CollegeListingController implements Initializable {
 
-    public static boolean isCollegeListingFormComplete = false;
+    static boolean isCollegeListingFormComplete = false;
+    private final String TAG = "CollegeListingController";
+    private final CollegeDB collegeDB = new CollegeDB();
     @FXML
     private VBox college_listing_vbox;
     @FXML
@@ -34,12 +36,9 @@ public class CollegeListingController implements Initializable {
     private JFXListView<String> selected_college_list;
     @FXML
     private JFXButton submit_college_listing;
-    private String TAG = "CollegeListingController";
-
     private Connection conn = null;
     private Statement st;
     private String sql;
-    private CollegeDB collegeDB = new CollegeDB();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -47,24 +46,6 @@ public class CollegeListingController implements Initializable {
         for (HashBiMap.Entry<Integer, String> Entry : collegeDB.getMap().entrySet()) {
             Main.log(TAG, "Adding College : " + Entry.getKey());
             available_college_list.getItems().add(Entry.getValue());
-        }
-
-        try {
-            new org.mariadb.jdbc.Driver();
-
-            conn = DriverManager.getConnection(Main.DB_URL, "root", "");
-            if (conn != null)
-                Main.log(TAG, "Connected to Database1");
-
-            st = conn.createStatement();
-
-            for (int i = 6; i < 33; i++) {
-                sql = "INSERT INTO LOGIN (id, email, pass) VALUES (" + i + ", 'test" + i + "', " + "'test" + i + "');";
-                st.executeQuery(sql);
-            }
-
-        } catch (Exception e1) {
-            e1.printStackTrace();
         }
 
         add_college_button.setOnAction(new EventHandler<ActionEvent>() {
@@ -113,6 +94,10 @@ public class CollegeListingController implements Initializable {
                         conn = DriverManager.getConnection(Main.DB_URL, "root", "");
                         if (conn != null)
                             Main.log(TAG, "Connected to Database");
+                        else {
+                            Main.log(TAG, "Couldn't connect to Database");
+                            return;
+                        }
 
                         st = conn.createStatement();
 

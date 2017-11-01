@@ -19,26 +19,18 @@ public class FormSummaryController implements Initializable {
 
     @FXML
     private Label form_summary_status;
-
     @FXML
     private ImageView personal_details_status;
-
     @FXML
     private ImageView academic_details_status;
-
     @FXML
     private ImageView college_listing_status;
-
     @FXML
     private ImageView upload_docs_status;
-
     @FXML
     private VBox form_summary_pane;
-
     @FXML
     private JFXButton submit_form_button;
-
-    private String TAG = "FormSummaryController";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,6 +44,7 @@ public class FormSummaryController implements Initializable {
             e.printStackTrace();
         }
 
+        String TAG = "FormSummaryController";
         if (AcademicController.isAcademicFormComplete) {
             Main.log(TAG, "AcademicForm : Complete");
             completedForms++;

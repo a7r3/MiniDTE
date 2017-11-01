@@ -6,9 +6,9 @@ import java.util.HashMap;
 
 public class CollegeDB {
 
-    HashBiMap<Integer, String> map = HashBiMap.create();
+    private final HashBiMap<Integer, String> map = HashBiMap.create();
 
-    HashMap<Integer, Integer> seatsMap = new HashMap<>();
+    private HashMap<Integer, Integer> seatsMap = new HashMap<>();
 
     public CollegeDB() {
         map.put(601, "SIES GST : Computer Engineering");

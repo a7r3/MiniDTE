@@ -23,53 +23,23 @@ import java.util.ResourceBundle;
 
 public class AdminConsoleController implements Initializable {
 
+    private static Student[] s;
     @FXML
     private Pane result_pane;
-
     @FXML
     private JFXButton generate_results_button;
-
     @FXML
     private JFXButton logOutButton;
-
     private String TAG = "AdminConsoleController";
-
-    private static Student[] s;
-
-    private static void setStudent(Student[] s) {
-        AdminConsoleController.s = s;
-    }
+    private ObservableList<StudentList> data = FXCollections.observableArrayList();
+    private CollegeDB collegeDB = new CollegeDB();
 
     private static Student[] getStudent() {
         return s;
     }
 
-    private ObservableList<StudentList> data = FXCollections.observableArrayList();
-
-    public static class StudentList {
-
-        private final SimpleStringProperty name;
-        private final SimpleStringProperty college;
-        private final SimpleStringProperty stream;
-
-        private StudentList(String name, String college) {
-            this.name = new SimpleStringProperty(name);
-            String[] someString = college.split(" : ");
-            this.college = new SimpleStringProperty(someString[0]);
-            this.stream = new SimpleStringProperty(someString[1]);
-        }
-
-        public String getStream() {
-            return stream.get();
-        }
-
-        public String getName() {
-            return name.get();
-        }
-
-        public String getCollege() {
-            return college.get();
-        }
+    private static void setStudent(Student[] s) {
+        AdminConsoleController.s = s;
     }
 
     @Override
@@ -125,29 +95,17 @@ public class AdminConsoleController implements Initializable {
         return collegeDB.getSeatsMap().get(cid) > 0;
     }
 
-    class Student {
-
-        String nick;
-        int id;
-        int prefs[] = new int[5];
-        int marks[] = new int[4];
-
-        Student(String nick, int id, int marks[], int prefs[]) {
-            this.nick = nick;
-            this.id = id;
-            this.marks = marks;
-            this.prefs = prefs;
-        }
-    }
-
-    CollegeDB collegeDB = new CollegeDB();
-
     private void getDatabase() {
         try {
             new org.mariadb.jdbc.Driver();
             Connection conn = DriverManager.getConnection(Main.DB_URL, "root", "");
+
             if (conn != null)
                 Main.log(TAG, "Connected to Database");
+            else {
+                Main.log(TAG, "Couldn't connect to Database");
+                return;
+            }
 
             Statement st = conn.createStatement();
 
@@ -212,7 +170,6 @@ public class AdminConsoleController implements Initializable {
         }
     }
 
-
     private void arrangeSeat() {
         Student temp;
         Student[] s = getStudent();
@@ -261,6 +218,49 @@ public class AdminConsoleController implements Initializable {
         Main.log(TAG, "-----------------");
 
         return studentLists;
+    }
+
+    static class StudentList {
+
+        private final SimpleStringProperty name;
+        private final SimpleStringProperty college;
+        private final SimpleStringProperty stream;
+
+        private StudentList(String name, String college) {
+            this.name = new SimpleStringProperty(name);
+            String[] someString = college.split(" : ");
+            this.college = new SimpleStringProperty(someString[0]);
+            this.stream = new SimpleStringProperty(someString[1]);
+        }
+
+        // Required by ObservableList (Table Data Element)
+        public String getStream() {
+            return stream.get();
+        }
+
+        // Required by ObservableList (Table Data Element)
+        public String getName() {
+            return name.get();
+        }
+
+        String getCollege() {
+            return college.get();
+        }
+    }
+
+    class Student {
+
+        String nick;
+        int id;
+        int prefs[] = new int[5];
+        int marks[] = new int[4];
+
+        Student(String nick, int id, int marks[], int prefs[]) {
+            this.nick = nick;
+            this.id = id;
+            this.marks = marks;
+            this.prefs = prefs;
+        }
     }
 
 }

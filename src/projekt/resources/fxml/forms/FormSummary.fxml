@@ -13,63 +13,43 @@
     <padding>
         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
     </padding>
-    <children>
-        <Label fx:id="form_summary_status" alignment="CENTER" prefHeight="94.0" prefWidth="570.0" styleClass="title"
-               text="Your Form is 0% Complete"/>
-        <Label alignment="CENTER" prefHeight="35.0" prefWidth="570.0"
-               text="Complete the following Subforms for Successful Submission"/>
-        <HBox prefHeight="35.0" prefWidth="570.0">
-            <children>
-                <Label prefHeight="35.0" prefWidth="535.0" text="Personal Details"/>
-                <ImageView fx:id="personal_details_status" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/cross.png"/>
-                    </image>
-                </ImageView>
-            </children>
-        </HBox>
-        <HBox prefHeight="35.0" prefWidth="535.0">
-            <children>
-                <Label prefHeight="35.0" prefWidth="535.0" text="Academic Details"/>
-                <ImageView fx:id="academic_details_status" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/cross.png"/>
-                    </image>
-                </ImageView>
-            </children>
-        </HBox>
-        <HBox prefHeight="35.0" prefWidth="570.0">
-            <children>
-                <Label prefHeight="35.0" prefWidth="535.0" text="College Listing"/>
-                <ImageView fx:id="college_listing_status" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/cross.png"/>
-                    </image>
-                </ImageView>
-            </children>
-        </HBox>
-        <HBox prefHeight="35.0" prefWidth="570.0">
-            <children>
-                <Label prefHeight="35.0" prefWidth="535.0" text="Upload Documents"/>
-                <ImageView fx:id="upload_docs_status" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/cross.png"/>
-                    </image>
-                </ImageView>
-            </children>
-        </HBox>
-        <HBox alignment="CENTER" prefHeight="35.0" prefWidth="570.0">
-            <children>
-                <JFXButton fx:id="submit_form_button" alignment="CENTER" buttonType="RAISED" disable="true"
-                           prefHeight="33.0" prefWidth="112.0" styleClass="jfx-button-style" text="Submit Form"/>
-            </children>
-        </HBox>
-    </children>
     <VBox.margin>
         <Insets/>
     </VBox.margin>
+    <Label fx:id="form_summary_status" alignment="CENTER" prefHeight="94.0" prefWidth="570.0" styleClass="title"
+           text="Your Form is 0% Complete"/>
+    <Label alignment="CENTER" prefHeight="35.0" prefWidth="570.0"
+           text="Complete the following Subforms for Successful Submission"/>
+    <HBox prefHeight="35.0" prefWidth="570.0">
+        <Label prefHeight="35.0" prefWidth="535.0" text="Personal Details"/>
+        <ImageView fx:id="personal_details_status" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <Image url="@../../images/cross.png"/>
+        </ImageView>
+    </HBox>
+    <HBox prefHeight="35.0" prefWidth="535.0">
+        <Label prefHeight="35.0" prefWidth="535.0" text="Academic Details"/>
+        <ImageView fx:id="academic_details_status" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <Image url="@../../images/cross.png"/>
+        </ImageView>
+    </HBox>
+    <HBox prefHeight="35.0" prefWidth="570.0">
+        <Label prefHeight="35.0" prefWidth="535.0" text="College Listing"/>
+        <ImageView fx:id="college_listing_status" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <Image url="@../../images/cross.png"/>
+        </ImageView>
+    </HBox>
+    <HBox prefHeight="35.0" prefWidth="570.0">
+        <Label prefHeight="35.0" prefWidth="535.0" text="Upload Documents"/>
+        <ImageView fx:id="upload_docs_status" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <Image url="@../../images/cross.png"/>
+        </ImageView>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="35.0" prefWidth="570.0">
+        <JFXButton fx:id="submit_form_button" alignment="CENTER" buttonType="RAISED" disable="true"
+                   prefHeight="33.0" prefWidth="112.0" styleClass="jfx-button-style" text="Submit Form"/>
+    </HBox>
 </VBox>

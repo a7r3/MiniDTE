@@ -2,14 +2,12 @@ package projekt.controllers;
 
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
-import com.jfoenix.controls.JFXToolbar;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import projekt.Main;
 
@@ -20,15 +18,11 @@ import java.util.ResourceBundle;
 public class StudentConsoleController implements Initializable {
 
     @FXML
-    public VBox form_box;
+    private VBox form_box;
     @FXML
-    public Label student_console_toolbar_title;
-    @FXML
-    private AnchorPane student_console_pane;
+    private Label student_console_toolbar_title;
     @FXML
     private JFXHamburger hamburger;
-    @FXML
-    private JFXToolbar student_console_toolbar;
     @FXML
     private JFXDrawer student_nav_drawer;
     private HamburgerBackArrowBasicTransition transition;
@@ -78,7 +72,7 @@ public class StudentConsoleController implements Initializable {
             student_nav_drawer.setSidePane(studentSidePanel);
 
             scrollPane = new ScrollPane();
-            scrollPane.setFitToWidth(true);
+            scrollPane.setPrefWidth(610);
             scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
             scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 

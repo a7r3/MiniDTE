@@ -15,22 +15,16 @@ public class StudentNavPaneController implements Initializable {
 
     @FXML
     private JFXButton personal_details_button;
-
     @FXML
     private JFXButton academic_details_button;
-
     @FXML
     private JFXButton college_list_button;
-
     @FXML
     private JFXButton upload_documents_button;
-
     @FXML
     private JFXButton summary_button;
-
     @FXML
     private JFXButton about_navpane;
-
     @FXML
     private JFXButton logout_button_navpane;
 
@@ -43,72 +37,51 @@ public class StudentNavPaneController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        personal_details_button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    scc.setForm(Main.PERSONAL_DETAILS_FORM, "Personal Details");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        JFXButton[] jfxButtons = new JFXButton[]{personal_details_button, academic_details_button,
+                college_list_button, upload_documents_button,
+                summary_button, about_navpane};
 
-        academic_details_button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    scc.setForm(Main.ACADEMIC_FORM, "Academic Details");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        for (final JFXButton jfxButton : jfxButtons) {
+            jfxButton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
 
-        college_list_button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    scc.setForm(Main.COLLEGE_LISTING_FORM, "College Listing");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+                    String formLayout;
 
-        upload_documents_button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    scc.setForm(Main.UPLOAD_DOCS_FORM, "Upload Documents");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+                    switch (jfxButton.getText()) {
+                        case "Personal Details":
+                            formLayout = Main.PERSONAL_DETAILS_FORM;
+                            break;
+                        case "Academic Details":
+                            formLayout = Main.ACADEMIC_FORM;
+                            break;
+                        case "College List":
+                            formLayout = Main.COLLEGE_LISTING_FORM;
+                            break;
+                        case "Upload Documents":
+                            formLayout = Main.UPLOAD_DOCS_FORM;
+                            break;
+                        case "Form Summary":
+                            formLayout = Main.SUMMARY_FORM;
+                            break;
+                        case "About":
+                            formLayout = Main.ABOUT_PAGE;
+                            break;
+                        case "Log Out":
+                            formLayout = Main.LOGIN_PAGE;
+                            break;
+                        default: // Humans make errors :P
+                            formLayout = Main.SUMMARY_FORM;
+                    }
 
-        summary_button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    scc.setForm(Main.SUMMARY_FORM, "Summary");
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    try {
+                        scc.setForm(formLayout, jfxButton.getText());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        });
-
-        about_navpane.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    scc.setForm(Main.ABOUT_PAGE, "About");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
+            });
+        }
         logout_button_navpane.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

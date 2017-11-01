@@ -24,7 +24,8 @@ import java.util.ResourceBundle;
 
 public class UploadDocsController implements Initializable {
 
-    public static boolean isUploadDocsFormComplete = false;
+    static boolean isUploadDocsFormComplete = false;
+    private final String TAG = "UploadDocsController";
     @FXML
     private VBox upload_docs_pane;
     @FXML
@@ -38,7 +39,6 @@ public class UploadDocsController implements Initializable {
     @FXML
     private JFXButton submit_upload_docs_button;
     private Connection conn = null;
-    private String TAG = " UploadDocsController";
     private File imageFile, signatureFile;
 
     @Override
@@ -53,6 +53,10 @@ public class UploadDocsController implements Initializable {
 
                     if (conn != null)
                         Main.log(TAG, "Connected to Database");
+                    else {
+                        Main.log(TAG, "Couldn't connect to Database");
+                        return;
+                    }
 
                     PreparedStatement preparedStatement = conn.prepareStatement("INSERT INTO DOCS (id, photo_image, signature_image) VALUES(?,?,?)");
 
@@ -103,7 +107,7 @@ public class UploadDocsController implements Initializable {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Open Signature Image");
                 signatureFile = fileChooser.showOpenDialog(new Stage());
-                if (imageFile != null) {
+                if (signatureFile != null) {
                     Image image = new Image(signatureFile.toURI().toString());
                     signature_image.setImage(image);
                 }

@@ -10,32 +10,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane fx:id="login_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projekt.controllers.MainController">
-    <children>
-        <Pane prefHeight="150.0" prefWidth="600.0" style="-fx-background-color: #1976D2;">
-            <effect>
-                <DropShadow />
-            </effect>
-        </Pane>
-        <Pane layoutX="125.0" layoutY="72.0" prefHeight="280.0" prefWidth="350.0" style="-fx-background-color: #ffffff;">
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-            <children>
-                <JFXTextField fx:id="login_field" focusColor="#1976d2" layoutX="19.0" layoutY="105.0" prefHeight="35.0" prefWidth="315.0" promptText="E-Mail ID" />
-                <JFXPasswordField fx:id="password_field" focusColor="#1976d2" layoutX="19.0" layoutY="150.0" prefHeight="35.0" prefWidth="315.0" promptText="Password" />
-                <JFXButton fx:id="login_button" buttonType="RAISED" layoutX="175.0" layoutY="210.0" onAction="#attemptLogin" prefHeight="46.0" prefWidth="160.0" ripplerFill="#90CAF9" style="-fx-background-color: #1976D2;" styleClass="jfx-button-style" text="SIGN-IN" textFill="WHITE" />
-                <Label id="title" layoutX="22.0" layoutY="14.0" prefHeight="46.0" prefWidth="315.0" styleClass="title" text="Get Started">
-                    <font>
-                        <Font name="Noto Sans Bold" size="23.0" />
-                    </font>
-                </Label>
-                <JFXProgressBar fx:id="login_progress" layoutY="-1.0" prefHeight="0.0" prefWidth="350.0" visible="false" />
-            </children>
-            <effect>
-                <DropShadow blurType="GAUSSIAN" height="15.0" radius="7.0" width="15.0" />
-            </effect>
-        </Pane>
-    </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="login_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root"
+            stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8.0.141"
+            fx:controller="projekt.controllers.MainController">
+    <Pane prefHeight="150.0" prefWidth="600.0" style="-fx-background-color: #1976D2;">
+        <effect>
+            <DropShadow/>
+        </effect>
+    </Pane>
+    <Pane layoutX="125.0" layoutY="72.0" prefHeight="280.0" prefWidth="350.0"
+          style="-fx-background-color: #ffffff;">
+        <opaqueInsets>
+            <Insets/>
+        </opaqueInsets>
+        <effect>
+            <DropShadow blurType="GAUSSIAN" height="15.0" radius="7.0" width="15.0"/>
+        </effect>
+        <JFXTextField fx:id="login_field" focusColor="#1976d2" layoutX="19.0" layoutY="105.0" prefHeight="35.0"
+                      prefWidth="315.0" promptText="E-Mail ID"/>
+        <JFXPasswordField fx:id="password_field" focusColor="#1976d2" layoutX="19.0" layoutY="150.0"
+                          prefHeight="35.0" prefWidth="315.0" promptText="Password"/>
+        <JFXButton fx:id="login_button" buttonType="RAISED" layoutX="175.0" layoutY="210.0" onAction="#attemptLogin"
+                   prefHeight="46.0" prefWidth="160.0" ripplerFill="#90CAF9" style="-fx-background-color: #1976D2;"
+                   styleClass="jfx-button-style" text="SIGN-IN" textFill="WHITE"/>
+        <Label id="title" layoutX="22.0" layoutY="14.0" prefHeight="46.0" prefWidth="315.0" styleClass="title"
+               text="Get Started">
+            <font>
+                <Font name="Noto Sans Bold" size="23.0"/>
+            </font>
+        </Label>
+        <JFXProgressBar fx:id="login_progress" layoutY="-1.0" prefHeight="0.0" prefWidth="350.0" visible="false"/>
+    </Pane>
 </AnchorPane>
