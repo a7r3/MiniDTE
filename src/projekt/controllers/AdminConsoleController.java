@@ -173,14 +173,24 @@ public class AdminConsoleController implements Initializable {
     private void arrangeSeat() {
         Student temp;
         Student[] s = getStudent();
-        for (int markField = 0; markField < 4; markField++) {
-            for (int i = 0; i < 32; i++) {
-                for (int j = 0; j < 32; j++) {
-                    if (s[i].marks[markField] < s[j].marks[markField]) {
+        for (int i = 0; i < 32; i++) {
+            for (int j = 0; j < 32; j++) {
+                for(int markField = 0; markField < 4; markField++) {
+
+                    // If comparision is equal, move on to compare next markField
+                    if(s[i].marks[markField] == s[j].marks[markField]) {
+                        continue;
+                    }
+
+                    // If they're not, and --v
+                    if (s[i].marks[0] < s[j].marks[0]) {
                         temp = s[i];
                         s[i] = s[j];
                         s[j] = temp;
+                        // Entries are swapped, go ahead for further comparison
+                        break;
                     }
+
                 }
             }
         }
@@ -219,14 +229,14 @@ public class AdminConsoleController implements Initializable {
 
         return studentLists;
     }
-
-    static class StudentList {
+    
+    public class StudentList {
 
         private final SimpleStringProperty name;
         private final SimpleStringProperty college;
         private final SimpleStringProperty stream;
 
-        private StudentList(String name, String college) {
+        StudentList(String name, String college) {
             this.name = new SimpleStringProperty(name);
             String[] someString = college.split(" : ");
             this.college = new SimpleStringProperty(someString[0]);
@@ -243,7 +253,7 @@ public class AdminConsoleController implements Initializable {
             return name.get();
         }
 
-        String getCollege() {
+        public String getCollege() {
             return college.get();
         }
     }
