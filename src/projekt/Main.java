@@ -52,6 +52,12 @@ public class Main extends Application {
     public static void main(String[] args) {
         String TAG = "Main";
         Main.log(TAG, "Firing up DTE Console, v0.2");
+        Main.log(TAG, "\n  ____ _____ _____ \n" +
+                " |  _ \\_   _| ____|\n" +
+                " | | | || | |  _|  \n" +
+                " | |_| || | | |___ \n" +
+                " |____/ |_| |_____|\n" +
+                "                   ");
         launch(args);
     }
 

@@ -39,7 +39,7 @@ public class LoginAuthenticator {
             rs = st.executeQuery(sql);
             while (rs.next())
                 id = rs.getInt("id");
-            System.out.println("id " + id);
+            Main.log(TAG, "UserID : " + id);
 
             conn.close();
             if (id == 404)

@@ -119,7 +119,7 @@ public class AdminConsoleController implements Initializable {
             while (rs.next()) {
                 for (int j = 0; j < 4; j++) {
                     marks[i][j] = rs.getInt(markFields[j]);
-                    Main.log(TAG, "marks[j] : " + marks[i][j]);
+//                    Main.log(TAG, "marks[j] : " + marks[i][j]);
                 }
                 i++;
             }
@@ -217,19 +217,19 @@ public class AdminConsoleController implements Initializable {
         }
 
         Main.log(TAG, " -- Seats Left --");
-        Main.log(TAG, "" + collegeDB.getSeatsMap().get(601));
-        Main.log(TAG, "" + collegeDB.getSeatsMap().get(602));
-        Main.log(TAG, "" + collegeDB.getSeatsMap().get(701));
-        Main.log(TAG, "" + collegeDB.getSeatsMap().get(702));
-        Main.log(TAG, "" + collegeDB.getSeatsMap().get(801));
-        Main.log(TAG, "" + collegeDB.getSeatsMap().get(802));
-        Main.log(TAG, "" + collegeDB.getSeatsMap().get(901));
-        Main.log(TAG, "" + collegeDB.getSeatsMap().get(902));
+        Main.log(TAG, "601 : " +collegeDB.getSeatsMap().get(601));
+        Main.log(TAG, "602 : " + collegeDB.getSeatsMap().get(602));
+        Main.log(TAG, "701 : " + collegeDB.getSeatsMap().get(701));
+        Main.log(TAG, "702 : " + collegeDB.getSeatsMap().get(702));
+        Main.log(TAG, "801 : " + collegeDB.getSeatsMap().get(801));
+        Main.log(TAG, "802 : " + collegeDB.getSeatsMap().get(802));
+        Main.log(TAG, "901 : " + collegeDB.getSeatsMap().get(901));
+        Main.log(TAG, "902 : " + collegeDB.getSeatsMap().get(902));
         Main.log(TAG, "-----------------");
 
         return studentLists;
     }
-    
+
     public class StudentList {
 
         private final SimpleStringProperty name;
