@@ -1,8 +1,6 @@
-# MiniProjekt DTE
-
-**v0.2 | Beta**
-
 <h1 align="center">DTE Admissions Portal</h1>
+
+<h3 align="center">v0.2 | Beta</h3>
 
 ## Introduction
 
