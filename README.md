@@ -50,7 +50,25 @@ Once the user fills all the forms, he has to approach this module, and submit th
 
 ## Results
 
-> To be markdown-ified
+### Student Console
+
+![Login](https://raw.githubusercontent.com/a7r3/MiniDTE/master/imgs/login.png)
+<br>
+![Form Summary](https://raw.githubusercontent.com/a7r3/MiniDTE/master/imgs/form_summary.png)
+<br>
+![Personal Details Subform](https://raw.githubusercontent.com/a7r3/MiniDTE/master/imgs/personal_details.png)
+<br>
+![Academic Details Subform](https://raw.githubusercontent.com/a7r3/MiniDTE/master/imgs/academic_details.png)
+<br>
+![College Listing Subform](https://raw.githubusercontent.com/a7r3/MiniDTE/master/imgs/college_list.png)
+<br>
+![Upload Docs Subform](https://raw.githubusercontent.com/a7r3/MiniDTE/master/imgs/upload_docs.png)
+<br>
+![Navigation Drawer](https://raw.githubusercontent.com/a7r3/MiniDTE/master/imgs/nav_pane.png)
+<br>
+### Admin Console
+![Login](https://raw.githubusercontent.com/a7r3/MiniDTE/master/imgs/admin_console.png)
+<br>
 
 ## Conclusion
 

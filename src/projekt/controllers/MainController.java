@@ -42,6 +42,9 @@ public class MainController {
 
         login_progress.setDisable(false);
 
+        // Reset the Admin status
+        isAdmin = false;
+        
         if (la.isRegistered()) {
             JFXSnackbar snackBar = new JFXSnackbar(login_pane);
             snackBar.show("Logged-In successfully", 2000);
